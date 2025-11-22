@@ -1,0 +1,51 @@
+MASTER PROMPT FOR PHASE 1 OF MURAL RESTORATION PROJECT
+
+Objective:
+Implement a comparative image restoration framework across four approaches (PDE-based, Patch-based, CNN-based, Hybrid) using MuralDH dataset (Mural512 as ground truth) and simulate damage using custom or segmentation-based masks. Each approach is executed in a separate Jupyter Notebook (.ipynb). The output (restored/enhanced images) from each approach will be saved in its own dedicated folder.
+
+Technical Requirements:
+- Use Python 3.x in Jupyter Notebooks
+- Libraries: OpenCV, NumPy, Matplotlib, PyTorch/TensorFlow (for CNN), LPIPS, scikit-image, pandas
+- Dataset Path: ./MuralDH/Mural512 for original images
+- For synthetic damage, generate masks and apply to ground truth images
+
+Folder Structure:
+project/
+  data/
+    ground_truth/
+    damaged/
+    masks/
+  methods/
+    PDE/
+      results/
+    Patch/
+      results/
+    Deep/
+      results/
+    Hybrid/
+      results/
+  notebooks/
+    Notebook_1_DatasetMask.ipynb
+    Notebook_2_PDE.ipynb
+    Notebook_3_Patch.ipynb
+    Notebook_4_Deep.ipynb
+    Notebook_5_Hybrid.ipynb
+    Notebook_6_Evaluation.ipynb
+    Notebook_7_Visualization.ipynb
+
+Workflow:
+1. Notebook_1: Load Mural512 images, create/save corresponding mask and damaged versions, and copy ground truth into data/ground_truth
+2. Notebook_2: Implement PDE-based restoration. Save outputs in methods/PDE/results
+3. Notebook_3: Implement Patch-based restoration. Save outputs in methods/Patch/results
+4. Notebook_4: Train and test CNN/U-Net-based inpainting. Save outputs in methods/Deep/results
+5. Notebook_5: Create hybrid pipeline: PDE output -> CNN refining. Save outputs in methods/Hybrid/results
+6. Notebook_6: Compute metrics (PSNR, SSIM, LPIPS, edge accuracy) by comparing outputs with ground truth and store in results CSV
+7. Notebook_7: Generate side-by-side visual comparisons, qualitative analysis, and prepare reports
+
+Key Details:
+- Each notebook operates independently and saves results in the corresponding method’s folder.
+- Keep consistent naming for inputs and outputs to enable automated evaluation.
+- Ensure masks align perfectly with damaged and ground truth images.
+- Use synthetic damage masks for controlled experimentation. Real masks can be tested separately in advanced analysis.
+
+End of file.
